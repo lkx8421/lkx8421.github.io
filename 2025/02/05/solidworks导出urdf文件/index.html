@@ -19,22 +19,71 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Cauchy">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="使用环境系统：Window 11 建模软件：solidworks 2021 仿真软件：matlab R2022a 以及 webots R2023a 参考文档： 一、通过solidworks导出URDF文件配置1、建模软件插件安装默认已经安装好solidworks，需要在solidworks上安装导出urdf文件的插件，ROS目前提供了SolidWorks转URDF的插件，叫做sw_urdf_exp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一份基于solidworks导出urdf文件应用于webots仿真的说明文档">
+<meta property="og:url" content="http://example.com/2025/02/05/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/index.html">
 <meta property="og:site_name" content="Cauchy">
+<meta property="og:description" content="使用环境系统：Window 11 建模软件：solidworks 2021 仿真软件：matlab R2022a 以及 webots R2023a 参考文档： 一、通过solidworks导出URDF文件配置1、建模软件插件安装默认已经安装好solidworks，需要在solidworks上安装导出urdf文件的插件，ROS目前提供了SolidWorks转URDF的插件，叫做sw_urdf_exp">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-13.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-11.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-12.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-10.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-9.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-1.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-2.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-3.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-4.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-5.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-6.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-7.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-8.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/image.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/image-1.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-14.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-15.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-16.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-17.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-18.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-19.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-20.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-21.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-22.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-23.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-24.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-25.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-26.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-27.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-28.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-29.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-30.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-31.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-32.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-33.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-34.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-35.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-36.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-37.png">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-38.png">
+<meta property="og:image" content="http://example.com/">
+<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-40.png">
+<meta property="article:published_time" content="2025-02-05T07:06:02.000Z">
+<meta property="article:modified_time" content="2025-02-05T08:22:10.234Z">
 <meta property="article:author" content="liukexin">
+<meta property="article:tag" content="webots">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-13.png">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2025/02/05/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/02/05/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/","path":"2025/02/05/solidworks导出urdf文件/","title":"一份基于solidworks导出urdf文件应用于webots仿真的说明文档"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Cauchy</title>
+<title>一份基于solidworks导出urdf文件应用于webots仿真的说明文档 | Cauchy</title>
   
 
 
@@ -67,7 +116,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Cauchy</h1>
+      <p class="site-title">Cauchy</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -93,7 +142,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -106,6 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">使用环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%80%9A%E8%BF%87solidworks%E5%AF%BC%E5%87%BAURDF%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">一、通过solidworks导出URDF文件配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%BB%BA%E6%A8%A1%E8%BD%AF%E4%BB%B6%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">1、建模软件插件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81URDF%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BA%E5%89%8D%E9%85%8D%E7%BD%AE%E5%9D%90%E6%A0%87%E7%B3%BB%E4%BF%A1%E6%81%AF%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">2、URDF文件导出前配置坐标系信息：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%AF%BC%E5%87%BAURDF%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">3、导出URDF文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A3%80%E6%9F%A5%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE"><span class="nav-number">3.</span> <span class="nav-text">二、检查导出urdf文件是否正确</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%9C%A8%E7%BA%BFurdf%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">1、在线urdf可视化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E9%80%9A%E8%BF%87matlab%E4%B8%AD%E7%9A%84simscape%E6%9D%A5%E6%A3%80%E6%9F%A5%E6%A8%A1%E5%9E%8B%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE%EF%BC%88%E9%9D%9E%E5%BF%85%E9%A1%BB%EF%BC%89%EF%BC%88%E5%88%A0%E9%99%A4%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">1、通过matlab中的simscape来检查模型是否正确（非必须）（删除）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAWebots%E5%B7%A5%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">三、新建一个Webots工程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81webots%E5%AE%89%E8%A3%85"><span class="nav-number">4.1.</span> <span class="nav-text">1、webots安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAwebots%E5%B7%A5%E7%A8%8B"><span class="nav-number">4.2.</span> <span class="nav-text">2、新建一个webots工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%B0%86%E7%94%9F%E6%88%90%E7%9A%84urdf%E6%96%87%E4%BB%B6%E5%AF%BC%E5%85%A5%E5%9C%A8webots%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B"><span class="nav-number">4.3.</span> <span class="nav-text">3、将生成的urdf文件导入在webots工程文件夹下</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%94%9F%E6%88%90%E7%94%A8%E4%BA%8Ewebots%E4%BB%BF%E7%9C%9F%E4%B8%AD%E7%9A%84proto%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">四、生成用于webots仿真中的proto模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85urdf2webots"><span class="nav-number">5.1.</span> <span class="nav-text">1、安装urdf2webots</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E7%94%9F%E6%88%90proto%E6%96%87%E4%BB%B6"><span class="nav-number">5.2.</span> <span class="nav-text">2、生成proto文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81proto%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9"><span class="nav-number">6.</span> <span class="nav-text">五、proto文件修改</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E4%BF%AE%E6%94%B9mesh%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="nav-number">6.1.</span> <span class="nav-text">1、修改mesh文件路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E8%AE%BE%E7%BD%AE%E5%B9%B6%E8%81%94%E5%B1%9E%E6%80%A7"><span class="nav-number">6.2.</span> <span class="nav-text">2、设置并联属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E8%AE%BE%E7%BD%AE%E5%85%B3%E8%8A%82"><span class="nav-number">6.3.</span> <span class="nav-text">3、设置关节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E9%85%8D%E7%BD%AE%E4%BC%A0%E6%84%9F%E5%99%A8"><span class="nav-number">6.4.</span> <span class="nav-text">4、配置传感器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E9%85%8D%E7%BD%AEaltimeter"><span class="nav-number">6.4.1.</span> <span class="nav-text">（1）配置altimeter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E9%85%8D%E7%BD%AEaccelerometer"><span class="nav-number">6.4.2.</span> <span class="nav-text">（2）配置accelerometer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E9%85%8D%E7%BD%AEinetial-unit"><span class="nav-number">6.4.3.</span> <span class="nav-text">（3）配置inetial unit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81proto%E5%AF%BC%E5%85%A5%E5%9C%A8webots%E4%B8%AD"><span class="nav-number">6.5.</span> <span class="nav-text">5、proto导入在webots中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E3%80%81%E4%BF%AE%E6%94%B9bounding%E5%B1%9E%E6%80%A7%EF%BC%88%E9%9D%9E%E5%BF%85%E9%A1%BB%EF%BC%8C%E5%BE%85%E5%AE%8C%E5%96%84%EF%BC%89"><span class="nav-number">6.6.</span> <span class="nav-text">6*、修改bounding属性（非必须，待完善）</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,16 +209,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/05/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,13 +233,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Cauchy">
+      <meta itemprop="name" content="一份基于solidworks导出urdf文件应用于webots仿真的说明文档 | Cauchy">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/02/05/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">一份基于solidworks导出urdf文件应用于webots仿真的说明文档</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          一份基于solidworks导出urdf文件应用于webots仿真的说明文档
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -226,8 +277,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="使用环境"><a href="#使用环境" class="headerlink" title="使用环境"></a>使用环境</h1><p>系统：Window 11</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="使用环境"><a href="#使用环境" class="headerlink" title="使用环境"></a>使用环境</h1><p>系统：Window 11</p>
 <p>建模软件：solidworks 2021</p>
 <p>仿真软件：matlab R2022a 以及 webots R2023a</p>
 <p>参考文档：</p>
@@ -619,7 +669,6 @@ Accelerometer <span class="token punctuation">&#123;</span>
     <span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-      
     </div>
 
     
@@ -627,107 +676,25 @@ Accelerometer <span class="token punctuation">&#123;</span>
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/webots/" rel="tag"># webots</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/02/05/hexo%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/" rel="prev" title="hexo折腾日记">
+                  <i class="fa fa-angle-left"></i> hexo折腾日记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/05/hexo%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/headphoto.jpg">
-      <meta itemprop="name" content="liukexin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cauchy">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Cauchy">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/02/05/hexo%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/" class="post-title-link" itemprop="url">hexo折腾日记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-02-05 11:10:04 / 修改时间：15:54:12" itemprop="dateCreated datePublished" datetime="2025-02-05T11:10:04+08:00">2025-02-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>412</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a><br><a target="_blank" rel="noopener" href="https://zhengyujie.github.io/2019/07/26/next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/">https://zhengyujie.github.io/2019/07/26/next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</a></p>
-<h1 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h1><p>参考网址<code>https://github.com/hai-zou/hexo-theme-sea</code></p>
-<h1 id="显示文章摘要方法"><a href="#显示文章摘要方法" class="headerlink" title="显示文章摘要方法"></a>显示文章摘要方法</h1><p><a target="_blank" rel="noopener" href="https://jiangding1990.github.io/2017/04/25/Hexo%E4%BD%BF%E7%94%A8NexT%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%B8%BB%E9%A1%B5%E6%98%BE%E7%A4%BA%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81%E6%96%B9%E6%B3%95/">https://jiangding1990.github.io/2017/04/25/Hexo%E4%BD%BF%E7%94%A8NexT%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E4%B8%BB%E9%A1%B5%E6%98%BE%E7%A4%BA%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81%E6%96%B9%E6%B3%95/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
