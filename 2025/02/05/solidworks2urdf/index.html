@@ -19,68 +19,68 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="使用环境系统：Window 11 建模软件：solidworks 2021 仿真软件：matlab R2022a 以及 webots R2023a 参考文档： 一、通过solidworks导出URDF文件配置1、建模软件插件安装默认已经安装好solidworks，需要在solidworks上安装导出urdf文件的插件，ROS目前提供了SolidWorks转URDF的插件，叫做sw_urdf_exp">
+    <meta name="description" content="这是一份将solidworks模型导出为urdf文件，并应用于webots仿真环境的说明文档">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一份基于solidworks导出urdf文件应用于webots仿真的说明文档">
-<meta property="og:url" content="http://example.com/2025/02/05/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:url" content="http://example.com/2025/02/05/solidworks2urdf/index.html">
 <meta property="og:site_name" content="Cauchy">
-<meta property="og:description" content="使用环境系统：Window 11 建模软件：solidworks 2021 仿真软件：matlab R2022a 以及 webots R2023a 参考文档： 一、通过solidworks导出URDF文件配置1、建模软件插件安装默认已经安装好solidworks，需要在solidworks上安装导出urdf文件的插件，ROS目前提供了SolidWorks转URDF的插件，叫做sw_urdf_exp">
+<meta property="og:description" content="这是一份将solidworks模型导出为urdf文件，并应用于webots仿真环境的说明文档">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-13.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-11.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-12.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-10.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-9.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-1.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-2.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-3.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-4.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-5.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-6.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-7.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-8.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/image.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/image-1.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-14.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-15.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-16.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-17.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-18.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-19.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-20.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-21.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-22.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-23.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-24.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-25.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-26.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-27.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-28.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-29.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-30.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-31.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-32.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-33.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-34.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-35.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-36.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-37.png">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-38.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-13.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-11.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-12.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-10.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-9.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-1.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-2.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-3.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-4.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-5.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-6.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-7.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-8.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/image.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/image-1.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-14.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-15.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-16.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-17.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-18.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-19.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-20.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-21.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-22.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-23.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-24.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-25.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-26.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-27.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-28.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-29.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-30.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-31.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-32.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-33.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-34.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-35.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-36.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-37.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-38.png">
 <meta property="og:image" content="http://example.com/">
-<meta property="og:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-40.png">
+<meta property="og:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-40.png">
 <meta property="article:published_time" content="2025-02-05T07:06:02.000Z">
-<meta property="article:modified_time" content="2025-02-05T08:22:10.234Z">
+<meta property="article:modified_time" content="2025-02-05T08:36:05.523Z">
 <meta property="article:author" content="liukexin">
 <meta property="article:tag" content="webots">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-13.png">
+<meta name="twitter:image" content="http://example.com/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-13.png">
 
 
-<link rel="canonical" href="http://example.com/2025/02/05/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/">
+<link rel="canonical" href="http://example.com/2025/02/05/solidworks2urdf/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/02/05/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/","path":"2025/02/05/solidworks导出urdf文件/","title":"一份基于solidworks导出urdf文件应用于webots仿真的说明文档"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/02/05/solidworks2urdf/","path":"2025/02/05/solidworks2urdf/","title":"一份基于solidworks导出urdf文件应用于webots仿真的说明文档"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>一份基于solidworks导出urdf文件应用于webots仿真的说明文档 | Cauchy</title>
@@ -170,7 +170,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -220,7 +220,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/05/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/05/solidworks2urdf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headphoto.jpg">
@@ -234,7 +234,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="一份基于solidworks导出urdf文件应用于webots仿真的说明文档 | Cauchy">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="这是一份将solidworks模型导出为urdf文件，并应用于webots仿真环境的说明文档">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -250,7 +250,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-02-05 15:06:02 / 修改时间：16:22:10" itemprop="dateCreated datePublished" datetime="2025-02-05T15:06:02+08:00">2025-02-05</time>
+      <time title="创建时间：2025-02-05 15:06:02 / 修改时间：16:36:05" itemprop="dateCreated datePublished" datetime="2025-02-05T15:06:02+08:00">2025-02-05</time>
     </span>
 
   
@@ -271,6 +271,7 @@
     </span>
 </div>
 
+            <div class="post-description">这是一份将solidworks模型导出为urdf文件，并应用于webots仿真环境的说明文档</div>
         </div>
       </header>
 
@@ -282,33 +283,33 @@
 <p>仿真软件：matlab R2022a 以及 webots R2023a</p>
 <p>参考文档：</p>
 <h1 id="一、通过solidworks导出URDF文件配置"><a href="#一、通过solidworks导出URDF文件配置" class="headerlink" title="一、通过solidworks导出URDF文件配置"></a>一、通过solidworks导出URDF文件配置</h1><h2 id="1、建模软件插件安装"><a href="#1、建模软件插件安装" class="headerlink" title="1、建模软件插件安装"></a>1、建模软件插件安装</h2><p>默认已经安装好solidworks，需要在solidworks上安装导出urdf文件的插件，ROS目前提供了SolidWorks转URDF的插件，叫做sw_urdf_exporter。官网下载地址：<a target="_blank" rel="noopener" href="http://wiki.ros.org/sw_urdf_exporter">http://wiki.ros.org/sw_urdf_exporter</a>。根据对应的Solidworks版本下载双击安装即可（安装前关闭solidworks，如果你的Solidworks很新没有对应版本默认选择最新版本的插件来安装）。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-13.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-13.png"></p>
 <p>安装好SolidWorks后，再安装这个插件，重新打开SW，点击菜单栏上方：工具-插件中会发现里面多了一个叫做SW2URDF的插件，勾选启用此插件。&#x20;</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-11.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-11.png"></p>
 <p>接着在上方菜单栏：工具-Tools-Export as URDF中对装配体配置urdf文件</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-12.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-12.png"></p>
 <h2 id="2、URDF文件导出前配置坐标系信息："><a href="#2、URDF文件导出前配置坐标系信息：" class="headerlink" title="2、URDF文件导出前配置坐标系信息："></a>2、URDF文件导出前配置坐标系信息：</h2><p>在导出URDF文件前需要配置坐标系。目前我们机器人基于<a target="_blank" rel="noopener" href="https://blog.csdn.net/inghoG/article/details/117881500">MDH参数法</a>来建立机器人模型，对于现有的A1.1模型，对于左腿，建立坐标系情况如下：</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-10.png"></p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-9.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-10.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-9.png"></p>
 <p>坐标系0表示body坐标系，建立在两个电机轴线连线的中心上，以上方向为z轴，朝向前脸的方向为x轴，电机轴线从右电机到左电机的连接方向为y轴。</p>
 <p>杆件的z轴方向均为其关节轴线方向朝外，x轴方向为从当前关节指向下一个关节。</p>
 <p>对于关节1 2 4 5 6 其坐标系xoy平面均在同一平面，如下所示均建立在杆1的外表面上，对于坐标系3其xoy平面则建立在轮子两个表面的中间，这样做是保证在受力分析时轮子的支持力均在xoy平面内便于分析。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87.png"></p>
 <p>对于右腿由于镜像关系如下所示，不再赘述。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-1.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-1.png"></p>
 <p>在建立好坐标系后，则可以开始后续的urdf文件导出操作</p>
 <h2 id="3、导出URDF文件"><a href="#3、导出URDF文件" class="headerlink" title="3、导出URDF文件"></a>3、导出URDF文件</h2><blockquote>
 <p>在导出URDF文件前，务必将各个杆件，关节的质量属性设置正确</p>
 </blockquote>
 <p>在solidworks上方菜单栏中：工具-Tools-Export as URDF对模型导出URDF文件。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-2.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-2.png"></p>
 <p>此界面是配置基座的相关信息：</p>
 <p>1为定义基座名称，此处为base_link</p>
 <p>2为定义基座坐标，这里未配置，需配置为<strong>坐标系0</strong></p>
 <p>3处选择基座模型，在solidworks工作界面选择对应对应零件则高亮出</p>
 <p>4为child links，表示在这个link下有几个子link，对应于此图有2个，分别为left_motor和right_motor。</p>
 <p>5为此URDF结构，表示一个机器人的杆件之间的关系，是一个树形结构。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-3.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-3.png"></p>
 <p>此界面是配置childlink的相关信息：</p>
 <p>1为定义childlink名称，此处为<strong>left_leg1</strong></p>
 <p>2为定义关节名称，必须定义否则导出前报错，此处命名为<strong>left_j1</strong></p>
@@ -453,26 +454,26 @@
 </tr>
 </tbody></table>
 <p>由于urdf无法生成并联结构，后续在proto文件进行修改。因此此处建立每个关节之间的连接关系，如下图所示：</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-4.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-4.png"></p>
 <p>在配置好坐标系，零件以及关节副等相关信息后，在URDF Exporter界面点击Preview and Export…按钮来导出URDF文件，如下界面：</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-5.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-5.png"></p>
 <p>主要检查导出前的Joint Type是否正确，Coordinates和Axis是否如设置一样，Axis是否有数值（0，0，1或者0，0，-1，<strong>如果0，0，-1改为0，0，1</strong>）。检查无误后点击右下角Next。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-6.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-6.png"></p>
 <p>此处来配置杆件的相关质量信息，一般需要提前在solidworks中设置好质量属性后，此处页面不用做修改。确认完毕后点击Export URDF and Meshes，选择导出路径以及导出文件名字diablo_robot后，点击<strong>保存</strong>即导出完毕。导出文件结构如下：</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-7.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-7.png"></p>
 <p>meshes文件夹中包括各个模型的STL文件，urdf中则为导出的.urdf文件</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-8.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-8.png"></p>
 <h1 id="二、检查导出urdf文件是否正确"><a href="#二、检查导出urdf文件是否正确" class="headerlink" title="二、检查导出urdf文件是否正确"></a>二、检查导出urdf文件是否正确</h1><h2 id="1、在线urdf可视化"><a href="#1、在线urdf可视化" class="headerlink" title="1、在线urdf可视化"></a>1、在线urdf可视化</h2><p><a target="_blank" rel="noopener" href="https://gkjohnson.github.io/urdf-loaders/javascript/example/bundle/">https://gkjohnson.github.io/urdf-loaders/javascript/example/bundle/</a></p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/image.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/image.png"></p>
 <p>将整个导出的文件夹拖拽到此网站，查看关节关系是否正确，如果转不动选择</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/image-1.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/image-1.png"></p>
 <h2 id="1、通过matlab中的simscape来检查模型是否正确（非必须）（删除）"><a href="#1、通过matlab中的simscape来检查模型是否正确（非必须）（删除）" class="headerlink" title="1、通过matlab中的simscape来检查模型是否正确（非必须）（删除）"></a><del>1、通过matlab中的simscape来检查模型是否正确（非必须）（删除）</del></h2><p>为了快速检查下建立的urdf文件是否正确，通过matlab导入urdf模型的方式来检查，首先打开matlab，将导出的diablo_robot添加到路径，如下所示</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-14.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-14.png"></p>
 <p>转到urdf所在文件目录，输入</p>
 <pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token function">smimport</span><span class="token punctuation">(</span>"diablo_robot<span class="token punctuation">.</span>urdf"<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>即可弹出simlink界面，点击运行弹出模型</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-15.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-15.png"></p>
 <p>此处就是根据urdf在matlab中生成的模型，可以看到各个关节由于重力作用下是按照我们所配置的坐标系来进行旋转的。检查发现<strong>左腿</strong>的方向错误，因此需要修改，分析是由于从body到左腿的motor的坐标转换的方向不对所导致的（在图形显示界面点击对应零件可显示对应零件的坐标系，检查此处是因为绕x轴的旋转角度错误）。</p>
 <p>打开diablo_robot.urdf文件，找到对应left_j4，如下所示</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>link</span><span class="token punctuation">></span></span>
@@ -507,29 +508,29 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>joint</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>再打开matlab导入urdf模型，检查看问题解决~</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-16.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-16.png"></p>
 <h1 id="三、新建一个Webots工程"><a href="#三、新建一个Webots工程" class="headerlink" title="三、新建一个Webots工程"></a>三、新建一个Webots工程</h1><h2 id="1、webots安装"><a href="#1、webots安装" class="headerlink" title="1、webots安装"></a>1、webots安装</h2><p>首先介绍webots的安装，直接在<a target="_blank" rel="noopener" href="https://www.cyberbotics.com/">官网下载</a>。点击后弹出页面向下拉选择webots-R2023.setup.exe，下载后直接双击安装，选择对应安装路径即可。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-17.png"></p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-18.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-17.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-18.png"></p>
 <h2 id="2、新建一个webots工程"><a href="#2、新建一个webots工程" class="headerlink" title="2、新建一个webots工程"></a>2、新建一个webots工程</h2><p>（1）双击打开安装好的webots，在Tools-Preferences…中设置界面语言为简体中文。点击ok后重启软件。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-19.png"></p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-20.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-19.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-20.png"></p>
 <p>（2）点击”文件-New-新项目目录…”，创建新项目目录</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-21.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-21.png"></p>
 <p>选择新项目目录所在文件夹</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-22.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-22.png"></p>
 <p>设置世界的名称，以及初始化时所带的特征，<strong>全选</strong>，点击下一步。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-23.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-23.png"></p>
 <p>点击完成，等待一下即可弹出一个地板，（鼠标左键放在地板上按住拖动鼠标即可改变视角方向）。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-24.png"></p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-25.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-24.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-25.png"></p>
 <ul>
 <li><p>注意要保存（Ctrl+Shift+S），默认建立工程会启动仿真，点击上方的暂停按钮来暂停仿真</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-26.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-26.png"></p>
 </li>
 </ul>
 <h2 id="3、将生成的urdf文件导入在webots工程文件夹下"><a href="#3、将生成的urdf文件导入在webots工程文件夹下" class="headerlink" title="3、将生成的urdf文件导入在webots工程文件夹下"></a>3、将生成的urdf文件导入在webots工程文件夹下</h2><p>首先先将通过solidworks生成了一个名为<strong>diablo_robot</strong>的文件夹，里面包括了mesh文件和urdf文件。将整个<strong>diablo_robot</strong>文件夹剪切到新建webots工程目录my_project下，如下所示，为后续生成proto文件做铺垫。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-27.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-27.png"></p>
 <h1 id="四、生成用于webots仿真中的proto模型"><a href="#四、生成用于webots仿真中的proto模型" class="headerlink" title="四、生成用于webots仿真中的proto模型"></a>四、生成用于webots仿真中的proto模型</h1><h2 id="1、安装urdf2webots"><a href="#1、安装urdf2webots" class="headerlink" title="1、安装urdf2webots"></a>1、安装urdf2webots</h2><p>（1）安装python：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin/_49237144/article/details/122915089">https://blog.csdn.net/weixin\_49237144/article/details/122915089</a></p>
 <p>（2）urdf2webots安装：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># webots版本>R2023b</span>
@@ -544,12 +545,12 @@ pip <span class="token function">install</span> <span class="token assign-left v
 <h2 id="2、生成proto文件"><a href="#2、生成proto文件" class="headerlink" title="2、生成proto文件"></a>2、生成proto文件</h2><p>打开webtos工程下urdf文件所在目录.\diablo_robot\urdf，右键点击在终端中输入</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python <span class="token parameter variable">-m</span> urdf2webots.importer <span class="token parameter variable">--input</span><span class="token operator">=</span>diablo_robot.urdf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-28.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-28.png"></p>
 <p>即可在对应文件夹内生成proto文件</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-29.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-29.png"></p>
 <h1 id="五、proto文件修改"><a href="#五、proto文件修改" class="headerlink" title="五、proto文件修改"></a>五、proto文件修改</h1><p>官网教程：<a target="_blank" rel="noopener" href="https://cyberbotics.com/doc/reference/proto-design-guidelines?version=R2023a">https://cyberbotics.com/doc/reference/proto-design-guidelines?version=R2023a</a></p>
 <p>可以通过记事本打开proto文件，不过在VScode中有对应的proto文件查看插件，可以实现语法高亮。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-30.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-30.png"></p>
 <h2 id="1、修改mesh文件路径"><a href="#1、修改mesh文件路径" class="headerlink" title="1、修改mesh文件路径"></a>1、修改mesh文件路径</h2><p>在windows环境下导出proto文件中，mesh文件路径（也就是对应的STL文件）会存在错误，如下所示，将对应url修改为相对路径解决</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">Shape <span class="token punctuation">&#123;</span>
   appearance DEF base_link_material PBRAppearance <span class="token punctuation">&#123;</span>
@@ -579,12 +580,12 @@ endPoint SolidReference <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>编辑好上述信息后，打开DiabloRobot.proto，将其复制在endPoint Solid的Shape节点为left_leg3的同级节点下，如下图所示</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-31.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-31.png"></p>
 <p>对于right_leg3也同样处理，只不过需要注意在SolidName中改为 right_leg2。</p>
 <h2 id="3、设置关节"><a href="#3、设置关节" class="headerlink" title="3、设置关节"></a>3、设置关节</h2><p>由于默认导出urdf文件时，除了会赋予Joint的位置信息（JointParameters），还会赋予关节的device信息，device一般包括电机（Motor）和位置传感器（PositionSensor），如下图所示</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-32.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-32.png"></p>
 <p>对于我们的模型而言，只有关节left_j1、left_j4、left_j3和right_j1、right_j4、right_j3是<strong>主动关节</strong>，其他的关节属于<strong>被动关节</strong>。因此需要对于我们的关节信息做一定修改，即将对应device信息中的Motor信息删除或者注释掉，如下所示：</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-33.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-33.png"></p>
 <p>通过这种方式来设置出我们需要的<strong>主动关节</strong>。</p>
 <h2 id="4、配置传感器"><a href="#4、配置传感器" class="headerlink" title="4、配置传感器"></a>4、配置传感器</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">GPS <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span>
@@ -621,15 +622,15 @@ Accelerometer <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="5、proto导入在webots中"><a href="#5、proto导入在webots中" class="headerlink" title="5、proto导入在webots中"></a>5、proto导入在webots中</h2><p>将编辑好的proto文件复制在我们创建好的webots工程文件夹中的&#x2F;protos中，双击打开&#x2F;worlds中我们创建好的世界new_world，按照1，2，3，4的顺序依次点击，即将我们的proto文件导入在了webots环境中。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-34.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-34.png"></p>
 <p>如果在webots中的命令行中出现这个，表示我们的proto文件的存在不合理字符，打开文件则发现设置的路径有问题</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-35.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-35.png"></p>
 <p>接着导入模型到我们的仿真界面，在<strong>暂停</strong>仿真状态下，依次点击1，2，3即可看到模型导入在了环境中</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-36.png"></p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-37.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-36.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-37.png"></p>
 <p>如果导入进来啥都没有，多半是由于设置的mesh路径错误，修改.proto文件中的url即可。</p>
 <h2 id="6-、修改bounding属性（非必须，待完善）"><a href="#6-、修改bounding属性（非必须，待完善）" class="headerlink" title="6*、修改bounding属性（非必须，待完善）"></a>6*、修改bounding属性（非必须，待完善）</h2><p>通过urdf导出的proto文件默认bounding属性默认是将三维软件模型直接mesh来作为边界，如下所示，白色的线就是这个机器人的接触边界。但是这种接触边界很复杂，会降低我们的仿真求解速度，因此需要一点的简化。</p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-38.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-38.png"></p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">boundingObject USE right_wheel <span class="token comment">#默认在proto文件中，bounding为对应杆件三维模型的mesh形状</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>（1）修改轮子</p>
@@ -642,7 +643,7 @@ Accelerometer <span class="token punctuation">&#123;</span>
 
 <p>修改后，点击菜单栏刷新，查看diablo_robot</p>
 <p><img src="/"></p>
-<p><img src="/solidworks%E5%AF%BC%E5%87%BAurdf%E6%96%87%E4%BB%B6/%E5%9B%BE%E7%89%87-40.png"></p>
+<p><img src="/2025/02/05/solidworks2urdf/%E5%9B%BE%E7%89%87-40.png"></p>
 <p>可以看到接触边界已经修改，调整subdivision来改变圆柱面精度，这里设置为32。</p>
 <p>（2）修改杆件</p>
 <p>对于较为复杂的杆件结构，我们通过建立group以及transform，例如，对于right_leg1，其bounding属性修改为：</p>
@@ -689,6 +690,9 @@ Accelerometer <span class="token punctuation">&#123;</span>
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/02/05/post-name/" rel="next" title="post_name">
+                  post_name <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
