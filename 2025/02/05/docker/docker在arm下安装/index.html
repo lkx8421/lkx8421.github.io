@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Ref:https:&#x2F;&#x2F;blog.csdn.net&#x2F;hbhgyu&#x2F;article&#x2F;details&#x2F;131745528 1. 更新系统包&amp;安装依赖项首先，确保系统是最新的。 sudo apt update sudo apt install apt-transport-https ca-certificates curl software-properties-common">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker在arm架构下安装">
+<meta property="og:url" content="http://example.com/2025/02/05/docker/docker%E5%9C%A8arm%E4%B8%8B%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="Cauchy">
+<meta property="og:description" content="Ref:https:&#x2F;&#x2F;blog.csdn.net&#x2F;hbhgyu&#x2F;article&#x2F;details&#x2F;131745528 1. 更新系统包&amp;安装依赖项首先，确保系统是最新的。 sudo apt update sudo apt install apt-transport-https ca-certificates curl software-properties-common">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-05T09:06:40.000Z">
+<meta property="article:modified_time" content="2025-02-05T09:11:38.757Z">
+<meta property="article:author" content="liukexin">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="arm">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/02/05/docker/docker%E5%9C%A8arm%E4%B8%8B%E5%AE%89%E8%A3%85/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/02/05/docker/docker%E5%9C%A8arm%E4%B8%8B%E5%AE%89%E8%A3%85/","path":"2025/02/05/docker/docker在arm下安装/","title":"docker在arm架构下安装"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>docker在arm架构下安装 | Cauchy</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Cauchy</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E5%8C%85-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="nav-number">1.</span> <span class="nav-text">1. 更新系统包&amp;安装依赖项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0-Docker-GPG-%E5%AF%86%E9%92%A5%E5%8F%8A%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">2. 添加 Docker  GPG 密钥及源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%9B%B4%E6%96%B0-APT-%E5%8C%85%E7%B4%A2%E5%BC%95"><span class="nav-number">3.</span> <span class="nav-text">5. 更新 APT 包索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%AE%89%E8%A3%85-Docker"><span class="nav-number">4.</span> <span class="nav-text">6. 安装 Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E6%A3%80%E6%9F%A5-Docker-%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.</span> <span class="nav-text">7. 检查 Docker 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95"><span class="nav-number">6.</span> <span class="nav-text">8. 运行测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">7.</span> <span class="nav-text">注意</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">7.1.</span> <span class="nav-text">配置镜像仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%A1%AE%E8%AE%A4-iptables-%E7%89%88%E6%9C%AC"><span class="nav-number">8.</span> <span class="nav-text">1. 确认 iptables 版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%87%E6%8D%A2%E5%88%B0-iptables-legacy"><span class="nav-number">9.</span> <span class="nav-text">2. 切换到 iptables-legacy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B8%85%E7%90%86%E6%97%A7%E7%9A%84-iptables-%E8%A7%84%E5%88%99"><span class="nav-number">10.</span> <span class="nav-text">3. 清理旧的 iptables 规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%A3%80%E6%9F%A5%E5%85%B6%E4%BB%96%E9%98%B2%E7%81%AB%E5%A2%99%E6%88%96%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7"><span class="nav-number">11.</span> <span class="nav-text">4. 检查其他防火墙或网络工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85-Docker"><span class="nav-number">12.</span> <span class="nav-text">5. 重新安装 Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="nav-number">13.</span> <span class="nav-text">6. 更新系统</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="liukexin"
+      src="/images/headphoto.jpg">
+  <p class="site-author-name" itemprop="name">liukexin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/yourname" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;yourname" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.google.com/" title="Google → https:&#x2F;&#x2F;www.google.com" rel="noopener me" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/05/docker/docker%E5%9C%A8arm%E4%B8%8B%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headphoto.jpg">
+      <meta itemprop="name" content="liukexin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cauchy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="docker在arm架构下安装 | Cauchy">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          docker在arm架构下安装
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-02-05 17:06:40 / 修改时间：17:11:38" itemprop="dateCreated datePublished" datetime="2025-02-05T17:06:40+08:00">2025-02-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Ref:<a target="_blank" rel="noopener" href="https://blog.csdn.net/hbhgyu/article/details/131745528">https://blog.csdn.net/hbhgyu/article/details/131745528</a></p>
+<h3 id="1-更新系统包-安装依赖项"><a href="#1-更新系统包-安装依赖项" class="headerlink" title="1. 更新系统包&amp;安装依赖项"></a>1. 更新系统包&amp;安装依赖项</h3><p>首先，确保系统是最新的。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> apt-transport-https ca-certificates <span class="token function">curl</span> software-properties-common<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span id="more"></span>
+<h3 id="2-添加-Docker-GPG-密钥及源"><a href="#2-添加-Docker-GPG-密钥及源" class="headerlink" title="2. 添加 Docker  GPG 密钥及源"></a>2. 添加 Docker  GPG 密钥及源</h3><p>官方源（速度比较慢）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://download.docker.com/linux/ubuntu/gpg <span class="token operator">|</span> <span class="token function">sudo</span> gpg <span class="token parameter variable">--dearmor</span> <span class="token parameter variable">-o</span> /usr/share/keyrings/docker-archive-keyring.gpg
+<span class="token builtin class-name">echo</span> <span class="token string">"deb [arch=<span class="token variable"><span class="token variable">$(</span>dpkg --print-architecture<span class="token variable">)</span></span> signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu <span class="token variable"><span class="token variable">$(</span>lsb_release <span class="token parameter variable">-cs</span><span class="token variable">)</span></span> stable"</span> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/apt/sources.list.d/docker.list <span class="token operator">></span> /dev/null
+<span class="token function">sudo</span> <span class="token function">apt</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>阿里云：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg <span class="token operator">|</span> <span class="token function">sudo</span> gpg <span class="token parameter variable">--dearmor</span> <span class="token parameter variable">-o</span> /usr/share/keyrings/docker-archive-keyring.gpg
+<span class="token builtin class-name">echo</span> <span class="token string">"deb [arch=<span class="token variable"><span class="token variable">$(</span>dpkg --print-architecture<span class="token variable">)</span></span> signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] http://mirrors.aliyun.com/docker-ce/linux/ubuntu <span class="token variable"><span class="token variable">$(</span>lsb_release <span class="token parameter variable">-cs</span><span class="token variable">)</span></span> stable"</span> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/apt/sources.list.d/docker.list <span class="token operator">></span> /dev/null
+<span class="token function">sudo</span> <span class="token function">apt</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-更新-APT-包索引"><a href="#5-更新-APT-包索引" class="headerlink" title="5. 更新 APT 包索引"></a>5. 更新 APT 包索引</h3><p>确保 APT 从 Docker 仓库安装，而不是从默认的 Ubuntu 仓库安装：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">apt-cache</span> policy docker-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="6-安装-Docker"><a href="#6-安装-Docker" class="headerlink" title="6. 安装 Docker"></a>6. 安装 Docker</h3><p>现在可以安装 Docker：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> docker-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="7-检查-Docker-服务"><a href="#7-检查-Docker-服务" class="headerlink" title="7. 检查 Docker 服务"></a>7. 检查 Docker 服务</h3><p>安装完成后，可以启动并检查 Docker 服务是否正常运行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl status <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="8-运行测试"><a href="#8-运行测试" class="headerlink" title="8. 运行测试"></a>8. 运行测试</h3><p>你可以运行以下命令来测试 Docker 是否正确安装和运行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">docker</span> run hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li><p>如果你使用的是 Raspberry Pi 等 ARMv7 架构设备，Docker 的某些镜像可能不支持该架构，因此需要确保使用支持 ARM 架构的镜像。</p>
+</li>
+<li><p>对于 Ubuntu 版本的差异（如 Ubuntu Server 或 Raspberry Pi OS），命令可能略有不同。</p>
+</li>
+</ul>
+<p>你也可以将当前用户添加到 <code>docker</code> 组，以避免每次运行 Docker 时使用 <code>sudo</code>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">usermod</span> <span class="token parameter variable">-aG</span> <span class="token function">docker</span> <span class="token variable">$&#123;<span class="token environment constant">USER</span>&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="配置镜像仓库"><a href="#配置镜像仓库" class="headerlink" title="配置镜像仓库"></a>配置镜像仓库</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> /etc/docker
+<span class="token function">cat</span> <span class="token operator">></span> /etc/docker/daemon.json <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
+&#123;
+    "registry-mirrors": [
+        "https://docker.mirrors.ustc.edu.cn/"
+    ]
+&#125;
+EOF</span>
+<span class="token comment"># 设置完成后重启</span>
+<span class="token function">sudo</span> systemctl daemon-reload
+<span class="token function">sudo</span> systemctl restart <span class="token function">docker</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#检查</span>
+<span class="token function">sudo</span> <span class="token function">docker</span> run hello-world
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+
+
+<p>Ｑ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">robot@tita:~/docker$ <span class="token function">sudo</span> systemctl restart <span class="token function">docker</span>
+Job <span class="token keyword">for</span> docker.service failed because the control process exited with error code.
+See <span class="token string">"systemctl status docker.service"</span> and <span class="token string">"journalctl -xeu docker.service"</span> <span class="token keyword">for</span> details.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> dockerd <span class="token parameter variable">--debug</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.824103335Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> filter <span class="token parameter variable">-N</span> DOCKER-ISOLATION-STAGE-1<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.825489729Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> filter <span class="token parameter variable">-n</span> <span class="token parameter variable">-L</span> DOCKER-ISOLATION-STAGE-2<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.826938205Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> filter <span class="token parameter variable">-N</span> DOCKER-ISOLATION-STAGE-2<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.828281717Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> filter <span class="token parameter variable">-C</span> DOCKER-ISOLATION-STAGE-1 <span class="token parameter variable">-j</span> RETURN<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.829875351Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-A</span> DOCKER-ISOLATION-STAGE-1 <span class="token parameter variable">-j</span> RETURN<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.945520319Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> filter <span class="token parameter variable">-F</span> DOCKER-ISOLATION-STAGE-2<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.948470617Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> filter <span class="token parameter variable">-X</span> DOCKER-ISOLATION-STAGE-2<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.950528079Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> filter <span class="token parameter variable">-F</span> DOCKER-ISOLATION-STAGE-1<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.951960043Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> filter <span class="token parameter variable">-X</span> DOCKER-ISOLATION-STAGE-1<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:17.996985659Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-D</span> PREROUTING <span class="token parameter variable">-m</span> addrtype --dst-type LOCAL <span class="token parameter variable">-j</span> DOCKER<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.004361101Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-D</span> OUTPUT <span class="token parameter variable">-m</span> addrtype --dst-type LOCAL <span class="token operator">!</span> <span class="token parameter variable">--dst</span> <span class="token number">127.0</span>.0.0/8 <span class="token parameter variable">-j</span> DOCKER<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.009870258Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-D</span> OUTPUT <span class="token parameter variable">-m</span> addrtype --dst-type LOCAL <span class="token parameter variable">-j</span> DOCKER<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.013839287Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-D</span> PREROUTING<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.014904771Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-D</span> OUTPUT<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.016268476Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-F</span> DOCKER<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.017408747Z<span class="token punctuation">]</span> /usr/sbin/iptables, <span class="token punctuation">[</span>--wait <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-X</span> DOCKER<span class="token punctuation">]</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.018885192Z<span class="token punctuation">]</span> daemon configured with a <span class="token number">15</span> seconds minimum <span class="token function">shutdown</span> <span class="token function">timeout</span> 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.018911914Z<span class="token punctuation">]</span> start clean <span class="token function">shutdown</span> of all containers with a <span class="token number">15</span> seconds timeout<span class="token punctuation">..</span>. 
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.020172382Z<span class="token punctuation">]</span> Cleaning up old mountid <span class="token builtin class-name">:</span> start.             
+DEBU<span class="token punctuation">[</span><span class="token number">2024</span>-09-12T07:44:18.020487947Z<span class="token punctuation">]</span> Cleaning up old mountid <span class="token builtin class-name">:</span> done.              
+failed to start daemon: Error initializing network controller: error obtaining controller instance: failed to register <span class="token string">"bridge"</span> driver: unable to <span class="token function">add</span> <span class="token builtin class-name">return</span> rule <span class="token keyword">in</span> DOCKER-ISOLATION-STAGE-1 chain:  <span class="token punctuation">(</span>iptables failed: iptables <span class="token parameter variable">--wait</span> <span class="token parameter variable">-A</span> DOCKER-ISOLATION-STAGE-1 <span class="token parameter variable">-j</span> RETURN: iptables v1.8.7 <span class="token punctuation">(</span>nf_tables<span class="token punctuation">)</span>:  RULE_APPEND failed <span class="token punctuation">(</span>No such <span class="token function">file</span> or directory<span class="token punctuation">)</span>: rule <span class="token keyword">in</span> chain DOCKER-ISOLATION-STAGE-1
+ <span class="token punctuation">(</span>exit status <span class="token number">4</span><span class="token punctuation">))</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>执行如下</p>
+<p>根据日志信息，Docker 服务启动失败是因为 <code>iptables</code> 配置出现了问题。错误信息指出了 <code>iptables</code> 在添加规则时的失败，具体是无法在 <code>DOCKER-ISOLATION-STAGE-1</code> 链中添加规则。</p>
+<p>这种问题通常与 <code>iptables</code> 的配置或版本有关。以下是一些可能的解决方案：</p>
+<h3 id="1-确认-iptables-版本"><a href="#1-确认-iptables-版本" class="headerlink" title="1. 确认 iptables 版本"></a>1. 确认 <code>iptables</code> 版本</h3><p>确保你的 <code>iptables</code> 版本与你的系统和 Docker 版本兼容。你可以查看 <code>iptables</code> 版本：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> iptables <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>如果 <code>iptables</code> 版本较旧，考虑更新：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> iptables<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="2-切换到-iptables-legacy"><a href="#2-切换到-iptables-legacy" class="headerlink" title="2. 切换到 iptables-legacy"></a>2. 切换到 <code>iptables-legacy</code></h3><p>某些系统使用 <code>nftables</code> 作为默认的 <code>iptables</code> 后端，这可能导致与 Docker 的兼容性问题。你可以尝试切换到 <code>iptables-legacy</code>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> update-alternatives <span class="token parameter variable">--set</span> iptables /usr/sbin/iptables-legacy
+<span class="token function">sudo</span> update-alternatives <span class="token parameter variable">--set</span> ip6tables /usr/sbin/ip6tables-legacy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>然后重新启动 Docker 服务：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl restart <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="3-清理旧的-iptables-规则"><a href="#3-清理旧的-iptables-规则" class="headerlink" title="3. 清理旧的 iptables 规则"></a>3. 清理旧的 <code>iptables</code> 规则</h3><p>有时，清理旧的 <code>iptables</code> 规则可以解决问题：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> iptables <span class="token parameter variable">-t</span> filter <span class="token parameter variable">-F</span>
+<span class="token function">sudo</span> iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-F</span>
+<span class="token function">sudo</span> iptables <span class="token parameter variable">-t</span> mangle <span class="token parameter variable">-F</span>
+<span class="token function">sudo</span> iptables <span class="token parameter variable">-t</span> raw <span class="token parameter variable">-F</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>注意：这会清空当前的 <code>iptables</code> 配置，可能影响系统的网络设置，请根据实际情况使用。</p>
+<h3 id="4-检查其他防火墙或网络工具"><a href="#4-检查其他防火墙或网络工具" class="headerlink" title="4. 检查其他防火墙或网络工具"></a>4. 检查其他防火墙或网络工具</h3><p>确保没有其他防火墙或网络工具干扰 <code>iptables</code> 配置。例如，<code>ufw</code>（Uncomplicated Firewall）可能会与 Docker 发生冲突。如果你使用 <code>ufw</code>，尝试禁用它：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> ufw disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="5-重新安装-Docker"><a href="#5-重新安装-Docker" class="headerlink" title="5. 重新安装 Docker"></a>5. 重新安装 Docker</h3><p>如果上述步骤无效，可以尝试重新安装 Docker：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> remove <span class="token parameter variable">--purge</span> docker-ce docker-ce-cli containerd.io
+<span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> docker-ce<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="6-更新系统"><a href="#6-更新系统" class="headerlink" title="6. 更新系统"></a>6. 更新系统</h3><p>确保你的操作系统是最新的，这样可以确保所有软件包和依赖项都是最新的：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>执行这些步骤后，再次尝试启动 Docker 服务。如果问题依然存在，请提供更多细节，以便进一步排查。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/arm/" rel="tag"># arm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/02/05/solidworks2urdf/" rel="prev" title="一份基于solidworks导出urdf文件应用于webots仿真的说明文档">
+                  <i class="fa fa-angle-left"></i> 一份基于solidworks导出urdf文件应用于webots仿真的说明文档
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/02/05/docker/docker%E4%BD%BF%E7%94%A8/" rel="next" title="docker使用">
+                  docker使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">liukexin</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">13k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/yourname" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
