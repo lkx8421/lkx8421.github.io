@@ -8,8 +8,8 @@ subtitle: ''
 description: ''
 keywords:
 author: liukexin
-language: en
-timezone: ''
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -40,8 +40,11 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
+marked:
+  prependRoot: true
+  postAsset: true
 future: true
 syntax_highlighter: prismjs
 highlight:
@@ -97,7 +100,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: sea
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -105,3 +108,23 @@ deploy:
   type: git 
   repo: https://github.com/lkx8421/lkx8421.github.io
   branch: main
+
+live2d:
+  enable: false
+  scriptFrom: local
+  model:
+    scale: 1
+    hHeadPos: 0.5
+    vHeadPos: 0.618
+  display:
+    superSample: 2
+    width: 200
+    height: 400
+    position: right
+    hOffset: 0
+    vOffset: -20
+  mobile:
+    show: false
+  react:
+    opacity: 0.7
+
