@@ -1,10 +1,13 @@
 ---
+
 title: 一份基于solidworks导出urdf文件应用于webots仿真的说明文档
 date: 2025-02-05 15:06:02
 tags: webots
 categories: 机器人仿真
 description: 这是一份将solidworks模型导出为urdf文件，并应用于webots仿真环境的说明文档
+
 ---
+
 # 使用环境
 
 系统：Window 11
@@ -38,8 +41,6 @@ description: 这是一份将solidworks模型导出为urdf文件，并应用于we
 ![](图片-10.png)
 
 ![](图片-9.png)
-
-
 
 坐标系0表示body坐标系，建立在两个电机轴线连线的中心上，以上方向为z轴，朝向前脸的方向为x轴，电机轴线从右电机到左电机的连接方向为y轴。
 
@@ -105,8 +106,6 @@ description: 这是一份将solidworks模型导出为urdf文件，并应用于we
 |            |              |             |             | right\_wheel | right\_j3       | 坐标系13                           | 基准轴4               | **continuous** |
 |            |              | right\_leg3 |             |              | right\_j5       | 坐标系15                           | 基准轴3               | **continuous** |
 
-
-
 由于urdf无法生成并联结构，后续在proto文件进行修改。因此此处建立每个关节之间的连接关系，如下图所示：
 
 ![](图片-4.png)
@@ -138,8 +137,6 @@ https://gkjohnson.github.io/urdf-loaders/javascript/example/bundle/
 将整个导出的文件夹拖拽到此网站，查看关节关系是否正确，如果转不动选择
 
 ![](image-1.png)
-
-
 
 ## ~~1、通过matlab中的simscape来检查模型是否正确（非必须）（删除）~~
 
@@ -238,7 +235,7 @@ smimport("diablo_robot.urdf")
 ![](图片-25.png)
 
 * 注意要保存（Ctrl+Shift+S），默认建立工程会启动仿真，点击上方的暂停按钮来暂停仿真
-
+  
   ![](图片-26.png)
 
 ## 3、将生成的urdf文件导入在webots工程文件夹下
@@ -250,8 +247,6 @@ smimport("diablo_robot.urdf")
 # 四、生成用于webots仿真中的proto模型
 
 ## 1、安装urdf2webots
-
-
 
 （1）安装python：https://blog.csdn.net/weixin\_49237144/article/details/122915089
 
@@ -271,8 +266,6 @@ pip install --upgrade --editable urdf2webots
 ```
 
 [urdf2webots.zip](files/urdf2webots.zip)
-
-
 
 ## 2、生成proto文件
 
@@ -371,8 +364,6 @@ endPoint SolidReference {
       name "accl"
     }
 ```
-
-
 
 ### （1）配置altimeter
 
