@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://example.com/2025/02/05/rl%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2024-09-07%2011-06-41%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
 <meta property="og:image" content="http://example.com/2025/02/05/rl%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/2024-09-07%2010-28-08%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
 <meta property="article:published_time" content="2025-02-05T10:10:17.000Z">
-<meta property="article:modified_time" content="2025-02-05T10:21:35.486Z">
+<meta property="article:modified_time" content="2025-02-06T08:11:29.626Z">
 <meta property="article:author" content="liukexin">
 <meta property="article:tag" content="reinforcement learning">
 <meta property="article:tag" content="CUDA">
@@ -134,7 +134,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -214,9 +214,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-02-05 18:10:17 / 修改时间：18:21:35" itemprop="dateCreated datePublished" datetime="2025-02-05T18:10:17+08:00">2025-02-05</time>
+      <time title="创建时间：2025-02-05 18:10:17" itemprop="dateCreated datePublished" datetime="2025-02-05T18:10:17+08:00">2025-02-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-02-06 16:11:29" itemprop="dateModified" datetime="2025-02-06T16:11:29+08:00">2025-02-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -282,11 +288,7 @@ export LD_LIBRARY_PATH&#x3D;$LD_LIBRARY_PATH:your_path&#x2F;anaconda3&#x2F;envs&
 
 <h1 id="一个简单的测试"><a href="#一个简单的测试" class="headerlink" title="一个简单的测试"></a>一个简单的测试</h1><pre class="line-numbers language-plain&#x20;text" data-language="plain&#x20;text"><code class="language-plain&#x20;text">pip3 install torch&#x3D;&#x3D;1.10.0+cu113 torchvision&#x3D;&#x3D;0.11.1+cu113 torchaudio&#x3D;&#x3D;0.10.0+cu113 -f https:&#x2F;&#x2F;download.pytorch.org&#x2F;whl&#x2F;cu113&#x2F;torch_stable.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
 <pre class="line-numbers language-plain&#x20;text" data-language="plain&#x20;text"><code class="language-plain&#x20;text">cd 你的路径&#x2F;isaacgym&#x2F;python &amp;&amp; pip install -e .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
 
 <pre class="line-numbers language-plain&#x20;text" data-language="plain&#x20;text"><code class="language-plain&#x20;text">cd examples &amp;&amp; python 1080_balls_of_solitude.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -297,7 +299,6 @@ export LD_LIBRARY_PATH&#x3D;$LD_LIBRARY_PATH:your_path&#x2F;anaconda3&#x2F;envs&
 <h3 id="“Isaac-Gym”没有反应"><a href="#“Isaac-Gym”没有反应" class="headerlink" title="“Isaac Gym”没有反应"></a>“Isaac Gym”没有反应</h3><p>运行示例代码（例如 joint_monkey.py）时，Isaac Gym 屏幕可能不会显示。 这是因为一些集成英特尔显卡（例如英特尔 UHD 显卡）的 PC 系统中并未使用 NVIDIA 的 GPU。 请输入以下命令以使用 NVIDIA GPU。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> prime-select nvidia
 <span class="token builtin class-name">export</span> <span class="token assign-left variable">VK_ICD_FILENAMES</span><span class="token operator">=</span>/usr/share/vulkan/icd.d/nvidia_icd.json<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 
     </div>
 
@@ -320,6 +321,9 @@ export LD_LIBRARY_PATH&#x3D;$LD_LIBRARY_PATH:your_path&#x2F;anaconda3&#x2F;envs&
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/02/11/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" rel="next" title="软件使用">
+                  软件使用 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
